@@ -4,8 +4,8 @@
 
 | Thông tin | Giá trị |
 |-----------|---------|
-| **Tổng số test cases** | 41 |
-| **File login.spec.ts** | 19 tests |
+| **Tổng số test cases** | 42 |
+| **File login.spec.ts** | 20 tests |
 | **File security.spec.ts** | 22 tests |
 | **Website test** | https://training-dev.cams-care.com/ |
 | **Framework** | Playwright + TypeScript |
@@ -21,21 +21,22 @@
 | TC-01 | Đăng nhập với thông tin hợp lệ | Kiểm tra đăng nhập thành công với username và password đúng | 1. Vào trang chủ<br>2. Confirm Country<br>3. Click Sign In<br>4. Nhập username hợp lệ<br>5. Nhập password hợp lệ<br>6. Click Login | Dashboard hiển thị, đăng nhập thành công |
 | TC-02 | Đăng nhập bằng phím Enter | Kiểm tra đăng nhập bằng phím Enter thay vì click nút Login | 1. Vào trang chủ<br>2. Confirm Country<br>3. Click Sign In<br>4. Nhập username<br>5. Nhập password<br>6. Nhấn Enter | Dashboard hiển thị, đăng nhập thành công |
 
-### 2. Invalid Login Tests - Đăng nhập không hợp lệ (3 tests)
+### 2. Invalid Login Tests - Đăng nhập không hợp lệ (4 tests)
 
 | ID | Tên Test | Mô tả | Bước thực hiện | Kết quả mong đợi |
 |----|----------|-------|----------------|------------------|
-| TC-04 | Đăng nhập với username sai | Kiểm tra đăng nhập với username không tồn tại | 1. Mở form login<br>2. Nhập username sai: wronguser@test.com<br>3. Nhập password đúng<br>4. Click Login | Hiển thị thông báo lỗi |
-| TC-05 | Đăng nhập với password sai | Kiểm tra đăng nhập với password không đúng | 1. Mở form login<br>2. Nhập username đúng<br>3. Nhập password sai: WrongPassword123!<br>4. Click Login | Hiển thị thông báo lỗi |
-| TC-06 | Đăng nhập với cả username và password sai | Kiểm tra đăng nhập khi cả 2 thông tin đều sai | 1. Mở form login<br>2. Nhập username sai<br>3. Nhập password sai<br>4. Click Login | Hiển thị thông báo lỗi |
+| TC-04 | Đăng nhập với email không tồn tại | Kiểm tra đăng nhập với email không tồn tại trong hệ thống | 1. Mở form login<br>2. Nhập email sai: wronguser@test.com<br>3. Nhập password đúng<br>4. Click Login | Hiển thị thông báo: **"User email does not exist!"** |
+| TC-05 | Đăng nhập với password sai | Kiểm tra đăng nhập với password không đúng | 1. Mở form login<br>2. Nhập email đúng: dungnv.php@gmail.com<br>3. Nhập password sai: WrongPassword123!<br>4. Click Login | Hiển thị thông báo: **"Email or password is incorrect!"** |
+| TC-06 | Đăng nhập với cả email và password sai | Kiểm tra đăng nhập khi cả 2 thông tin đều sai | 1. Mở form login<br>2. Nhập email sai: wrong@test.com<br>3. Nhập password sai: wrongpassword<br>4. Click Login | Hiển thị thông báo: **"User email does not exist!"** |
+| TC-06b | Đăng nhập với email không hợp lệ | Kiểm tra validation email format | 1. Mở form login<br>2. Nhập email không đúng định dạng: invalid-email<br>3. Nhập password bất kỳ<br>4. Click Login | Hiển thị thông báo: **"Not a valid email"** |
 
 ### 3. Empty Field Tests - Kiểm tra trường trống (3 tests)
 
 | ID | Tên Test | Mô tả | Bước thực hiện | Kết quả mong đợi |
 |----|----------|-------|----------------|------------------|
-| TC-07 | Đăng nhập với username trống | Kiểm tra validation khi không nhập username | 1. Mở form login<br>2. Để trống username<br>3. Nhập password<br>4. Click Login | Form không submit hoặc hiển thị lỗi validation |
-| TC-08 | Đăng nhập với password trống | Kiểm tra validation khi không nhập password | 1. Mở form login<br>2. Nhập username<br>3. Để trống password<br>4. Click Login | Form không submit hoặc hiển thị lỗi validation |
-| TC-09 | Đăng nhập với cả hai trường trống | Kiểm tra validation khi không nhập gì | 1. Mở form login<br>2. Để trống cả 2 trường<br>3. Click Login | Form không submit, vẫn ở trang login |
+| TC-07 | Đăng nhập với email trống | Kiểm tra validation khi không nhập email | 1. Mở form login<br>2. Để trống email<br>3. Nhập password: Admin@123!<br>4. Click Login | Hiển thị thông báo: **"Email is required"** |
+| TC-08 | Đăng nhập với password trống | Kiểm tra validation khi không nhập password | 1. Mở form login<br>2. Nhập email: admin@cams-care.com<br>3. Để trống password<br>4. Click Login | Hiển thị thông báo: **"Password is required"** |
+| TC-09 | Đăng nhập với cả hai trường trống | Kiểm tra validation khi không nhập gì | 1. Mở form login<br>2. Để trống cả 2 trường<br>3. Click Login | Hiển thị thông báo chứa **"required"** |
 
 ### 4. UI/UX Tests - Kiểm tra giao diện (3 tests)
 
@@ -137,11 +138,12 @@ password: 'screen1#'
 
 ### 2. Invalid Credentials (Đăng nhập thất bại)
 
-| Loại | Username | Password |
-|------|----------|----------|
-| Wrong Username | wronguser@test.com | screen1# |
-| Wrong Password | dungnv.php@gmail.com | WrongPassword123! |
-| Both Wrong | wrong@test.com | wrongpassword |
+| Loại | Username | Password | Thông báo lỗi mong đợi |
+|------|----------|----------|------------------------|
+| Wrong Email | wronguser@test.com | screen1# | User email does not exist! |
+| Wrong Password | dungnv.php@gmail.com | WrongPassword123! | Email or password is incorrect! |
+| Both Wrong | wrong@test.com | wrongpassword | User email does not exist! |
+| Invalid Email Format | invalid-email | somepassword | Not a valid email |
 
 ### 3. Boundary Values
 
