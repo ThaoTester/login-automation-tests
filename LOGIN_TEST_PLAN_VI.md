@@ -21,47 +21,47 @@ Tài liệu này mô tả quy trình hoàn chỉnh để tạo các test case t�
 
 | Nhiệm vụ | Mô tả | Trạng thái |
 |----------|-------|------------|
-| 1.1 | Truy cập URL trang đăng nhập | [ ] |
-| 1.2 | Xác định tất cả các thành phần form | [ ] |
-| 1.3 | Thu thập selector của các phần tử (ID, class, name) | [ ] |
-| 1.4 | Ghi chú các quy tắc validation | [ ] |
-| 1.5 | Liệt kê tất cả thông báo lỗi | [ ] |
+| 1.1 | Truy cập URL trang đăng nhập | [x] |
+| 1.2 | Xác định tất cả các thành phần form | [x] |
+| 1.3 | Thu thập selector của các phần tử (ID, class, name) | [x] |
+| 1.4 | Ghi chú các quy tắc validation | [x] |
+| 1.5 | Liệt kê tất cả thông báo lỗi | [x] |
 
 ### Bước 2: Thu Thập Dữ Liệu Test
 
 | Nhiệm vụ | Mô tả | Trạng thái |
 |----------|-------|------------|
-| 2.1 | Lấy thông tin đăng nhập hợp lệ | [ ] |
-| 2.2 | Định nghĩa các trường hợp đăng nhập không hợp lệ | [ ] |
-| 2.3 | Xác định giá trị biên | [ ] |
-| 2.4 | Chuẩn bị dữ liệu test bảo mật | [ ] |
+| 2.1 | Lấy thông tin đăng nhập hợp lệ | [x] |
+| 2.2 | Định nghĩa các trường hợp đăng nhập không hợp lệ | [x] |
+| 2.3 | Xác định giá trị biên | [x] |
+| 2.4 | Chuẩn bị dữ liệu test bảo mật | [x] |
 
 ### Bước 3: Thiết Lập Dự Án
 
 | Nhiệm vụ | Mô tả | Trạng thái |
 |----------|-------|------------|
-| 3.1 | Khởi tạo dự án Node.js | [ ] |
-| 3.2 | Cài đặt Playwright | [ ] |
-| 3.3 | Cấu hình playwright.config.ts | [ ] |
-| 3.4 | Tạo cấu trúc thư mục | [ ] |
+| 3.1 | Khởi tạo dự án Node.js | [x] |
+| 3.2 | Cài đặt Playwright | [x] |
+| 3.3 | Cấu hình playwright.config.ts | [x] |
+| 3.4 | Tạo cấu trúc thư mục | [x] |
 
 ### Bước 4: Viết Code Test
 
 | Nhiệm vụ | Mô tả | Trạng thái |
 |----------|-------|------------|
-| 4.1 | Tạo Page Object Model | [ ] |
-| 4.2 | Tạo file dữ liệu test | [ ] |
-| 4.3 | Viết các test specification | [ ] |
-| 4.4 | Thêm các assertion | [ ] |
+| 4.1 | Tạo Page Object Model | [x] |
+| 4.2 | Tạo file dữ liệu test | [x] |
+| 4.3 | Viết các test specification | [x] |
+| 4.4 | Thêm các assertion | [x] |
 
 ### Bước 5: Thực Thi & Báo Cáo
 
 | Nhiệm vụ | Mô tả | Trạng thái |
 |----------|-------|------------|
-| 5.1 | Chạy test trên máy local | [ ] |
-| 5.2 | Debug các test thất bại | [ ] |
-| 5.3 | Tạo báo cáo test | [ ] |
-| 5.4 | Sửa selector nếu cần | [ ] |
+| 5.1 | Chạy test trên máy local | [x] |
+| 5.2 | Debug các test thất bại | [x] |
+| 5.3 | Tạo báo cáo test | [x] |
+| 5.4 | Sửa selector nếu cần | [x] |
 
 ---
 
@@ -395,32 +395,43 @@ npx playwright show-report
 
 ### Test Chức Năng
 
-- [ ] TC-01: Đăng nhập với thông tin hợp lệ
-- [ ] TC-02: Đăng nhập với mật khẩu sai
-- [ ] TC-03: Đăng nhập với username sai
-- [ ] TC-04: Đăng nhập với username trống
-- [ ] TC-05: Đăng nhập với password trống
-- [ ] TC-06: Đăng nhập với cả hai trường trống
-- [ ] TC-07: Đăng nhập bằng phím Enter
-- [ ] TC-08: Checkbox ghi nhớ đăng nhập
-- [ ] TC-09: Link quên mật khẩu
-- [ ] TC-10: Chức năng đăng xuất
+- [x] TC-01: Đăng nhập với thông tin hợp lệ
+- [x] TC-02: Đăng nhập bằng phím Enter
+- [x] TC-04: Đăng nhập với email không tồn tại
+- [x] TC-05: Đăng nhập với mật khẩu sai
+- [x] TC-06: Đăng nhập với cả username và password sai
+- [x] TC-06b: Đăng nhập với email không hợp lệ
+- [x] TC-07: Đăng nhập với username trống
+- [x] TC-08: Đăng nhập với password trống
+- [x] TC-09: Đăng nhập với cả hai trường trống
 
 ### Test UI/UX
 
-- [ ] TC-11: Mật khẩu được ẩn (dạng *)
-- [ ] TC-12: Thứ tự điều hướng Tab
-- [ ] TC-13: Hiển thị thông báo lỗi
-- [ ] TC-14: Hiển thị loading
-- [ ] TC-15: Thiết kế responsive
+- [x] TC-10: Mật khẩu được ẩn (dạng *)
+- [x] TC-11: Nút Sign In hiển thị sau khi confirm country
+- [x] TC-12: Form login hiển thị sau khi click Sign In
 
-### Test Bảo Mật
+### Test Điều Hướng
 
-- [ ] TC-16: Phòng chống SQL injection
-- [ ] TC-17: Phòng chống XSS
-- [ ] TC-18: Bảo vệ brute force
-- [ ] TC-19: Bắt buộc HTTPS
-- [ ] TC-20: Bảo mật session
+- [x] TC-13: Link Forgot Password hoạt động
+- [x] TC-14: Đăng nhập thành công chuyển trang
+- [x] TC-15: Đăng xuất quay về trang chính
+
+### Test Giá Trị Biên
+
+- [x] TC-16: Đăng nhập với độ dài tối thiểu
+- [x] TC-17: Đăng nhập với độ dài tối đa
+- [x] TC-18: Đăng nhập với ký tự đặc biệt
+
+### Test Session
+
+- [x] TC-19: Session giữ nguyên sau khi refresh
+- [x] TC-20: Không thể truy cập sau khi đăng xuất
+
+### Test Bảo Mật (security.spec.ts)
+
+- [x] Phòng chống SQL injection
+- [x] Phòng chống XSS
 
 ---
 

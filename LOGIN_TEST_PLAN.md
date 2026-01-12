@@ -21,47 +21,47 @@ This document outlines the complete workflow for creating automated login test c
 
 | Task | Description | Status |
 |------|-------------|--------|
-| 1.1 | Access login page URL | [ ] |
-| 1.2 | Identify all form elements | [ ] |
-| 1.3 | Capture element selectors (ID, class, name) | [ ] |
-| 1.4 | Document validation rules | [ ] |
-| 1.5 | List all error messages | [ ] |
+| 1.1 | Access login page URL | [x] |
+| 1.2 | Identify all form elements | [x] |
+| 1.3 | Capture element selectors (ID, class, name) | [x] |
+| 1.4 | Document validation rules | [x] |
+| 1.5 | List all error messages | [x] |
 
 ### Step 2: Gather Test Data
 
 | Task | Description | Status |
 |------|-------------|--------|
-| 2.1 | Get valid test credentials | [ ] |
-| 2.2 | Define invalid credential scenarios | [ ] |
-| 2.3 | Identify boundary values | [ ] |
-| 2.4 | Prepare security test payloads | [ ] |
+| 2.1 | Get valid test credentials | [x] |
+| 2.2 | Define invalid credential scenarios | [x] |
+| 2.3 | Identify boundary values | [x] |
+| 2.4 | Prepare security test payloads | [x] |
 
 ### Step 3: Setup Project
 
 | Task | Description | Status |
 |------|-------------|--------|
-| 3.1 | Initialize Node.js project | [ ] |
-| 3.2 | Install Playwright | [ ] |
-| 3.3 | Configure playwright.config.ts | [ ] |
-| 3.4 | Create folder structure | [ ] |
+| 3.1 | Initialize Node.js project | [x] |
+| 3.2 | Install Playwright | [x] |
+| 3.3 | Configure playwright.config.ts | [x] |
+| 3.4 | Create folder structure | [x] |
 
 ### Step 4: Write Test Code
 
 | Task | Description | Status |
 |------|-------------|--------|
-| 4.1 | Create Page Object Model | [ ] |
-| 4.2 | Create test data file | [ ] |
-| 4.3 | Write test specifications | [ ] |
-| 4.4 | Add assertions | [ ] |
+| 4.1 | Create Page Object Model | [x] |
+| 4.2 | Create test data file | [x] |
+| 4.3 | Write test specifications | [x] |
+| 4.4 | Add assertions | [x] |
 
 ### Step 5: Execute & Report
 
 | Task | Description | Status |
 |------|-------------|--------|
-| 5.1 | Run tests locally | [ ] |
-| 5.2 | Debug failed tests | [ ] |
-| 5.3 | Generate test report | [ ] |
-| 5.4 | Fix selectors if needed | [ ] |
+| 5.1 | Run tests locally | [x] |
+| 5.2 | Debug failed tests | [x] |
+| 5.3 | Generate test report | [x] |
+| 5.4 | Fix selectors if needed | [x] |
 
 ---
 
@@ -395,32 +395,43 @@ npx playwright show-report
 
 ### Functional Tests
 
-- [ ] TC-01: Login with valid credentials
-- [ ] TC-02: Login with invalid password
-- [ ] TC-03: Login with invalid username
-- [ ] TC-04: Login with empty username
-- [ ] TC-05: Login with empty password
-- [ ] TC-06: Login with both fields empty
-- [ ] TC-07: Login using Enter key
-- [ ] TC-08: Remember me checkbox
-- [ ] TC-09: Forgot password link
-- [ ] TC-10: Logout functionality
+- [x] TC-01: Login with valid credentials
+- [x] TC-02: Login using Enter key
+- [x] TC-04: Login with invalid username (email does not exist)
+- [x] TC-05: Login with invalid password
+- [x] TC-06: Login with both wrong credentials
+- [x] TC-06b: Login with invalid email format
+- [x] TC-07: Login with empty username
+- [x] TC-08: Login with empty password
+- [x] TC-09: Login with both fields empty
 
 ### UI/UX Tests
 
-- [ ] TC-11: Password is masked
-- [ ] TC-12: Tab navigation order
-- [ ] TC-13: Error message visibility
-- [ ] TC-14: Loading indicator
-- [ ] TC-15: Responsive design
+- [x] TC-10: Password is masked
+- [x] TC-11: Sign In button visible after confirm country
+- [x] TC-12: Login form visible after click Sign In
 
-### Security Tests
+### Navigation Tests
 
-- [ ] TC-16: SQL injection prevention
-- [ ] TC-17: XSS prevention
-- [ ] TC-18: Brute force protection
-- [ ] TC-19: HTTPS enforcement
-- [ ] TC-20: Session security
+- [x] TC-13: Forgot password link
+- [x] TC-14: Redirect after successful login
+- [x] TC-15: Logout returns to main page
+
+### Boundary Value Tests
+
+- [x] TC-16: Login with minimum length values
+- [x] TC-17: Login with maximum length values
+- [x] TC-18: Login with special characters
+
+### Session Tests
+
+- [x] TC-19: Session persists after refresh
+- [x] TC-20: Cannot access after logout
+
+### Security Tests (security.spec.ts)
+
+- [x] SQL injection prevention
+- [x] XSS prevention
 
 ---
 
