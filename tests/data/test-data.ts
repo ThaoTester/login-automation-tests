@@ -171,3 +171,97 @@ export const bruteForce = {
   correctPassword: 'Correct@123!',
   maxAttempts: 5
 };
+
+// ============================================================
+// REGISTRATION TEST DATA
+// ============================================================
+
+// Hàm tạo email unique cho mỗi test
+export const generateUniqueEmail = () => `testuser${Date.now()}@test.com`;
+
+// Valid registration data
+export const validRegistration = {
+  firstName: 'Test',
+  lastName: 'User',
+  email: generateUniqueEmail(),
+  password: 'Test@123!'
+};
+
+// Invalid registration data
+export const invalidRegistration = {
+  invalidEmail: {
+    firstName: 'Test',
+    lastName: 'User',
+    email: 'invalid-email',
+    password: 'Test@123!',
+    expectedError: 'Not a valid email'
+  },
+  existingEmail: {
+    firstName: 'Test',
+    lastName: 'User',
+    email: 'dungnv.php@gmail.com',
+    password: 'Test@123!',
+    expectedError: 'already exists'
+  }
+};
+
+// Empty field test data for registration
+export const emptyRegistrationFields = {
+  emptyFirstName: {
+    firstName: '',
+    lastName: 'User',
+    email: 'newuser@test.com',
+    password: 'Test@123!',
+    expectedError: 'required'
+  },
+  emptyLastName: {
+    firstName: 'Test',
+    lastName: '',
+    email: 'newuser@test.com',
+    password: 'Test@123!',
+    expectedError: 'required'
+  },
+  emptyEmail: {
+    firstName: 'Test',
+    lastName: 'User',
+    email: '',
+    password: 'Test@123!',
+    expectedError: 'Email is required'
+  },
+  emptyPassword: {
+    firstName: 'Test',
+    lastName: 'User',
+    email: 'newuser@test.com',
+    password: '',
+    expectedError: 'Password is required'
+  },
+  allEmpty: {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    expectedError: 'required'
+  }
+};
+
+// Boundary value test data for registration
+export const registrationBoundaryValues = {
+  minLength: {
+    firstName: 'A',
+    lastName: 'B',
+    email: 'a@b.co',
+    password: 'P@1a'
+  },
+  maxLength: {
+    firstName: 'A'.repeat(50),
+    lastName: 'B'.repeat(50),
+    email: 'a'.repeat(50) + '@test.com',
+    password: 'P@ssw0rd!' + 'a'.repeat(100)
+  },
+  specialChars: {
+    firstName: 'Test-User',
+    lastName: "O'Brien",
+    email: 'user+test@test.com',
+    password: 'P@ss!#$%^&*()'
+  }
+};
